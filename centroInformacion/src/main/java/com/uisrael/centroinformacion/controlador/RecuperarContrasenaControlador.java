@@ -39,6 +39,10 @@ public class RecuperarContrasenaControlador {
     public String resetRequest(@RequestParam(value = "email") String email) {
         emailServicio.sendMail(email);
         
+        // 1 CREAR LOS MODELOS 
+        // 2 CREAR LOS DAO
+        // 3 USAR EN EL CONTROLLER
+        
         // TODO: VERIFY IF EXIST EMAIL IN DATABASE
         // ALTER TABLE WITH TOKEN AND SEND EMAIL
         
