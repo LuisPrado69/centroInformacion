@@ -39,7 +39,7 @@ public class ServiciosEmail {
             mimeHelper.setFrom("example@gmail.com");
             mimeHelper.setSubject("RECUPERACIÓN DE CONTRASEÑA");
             // TODO: URL FROM PRODUCTION
-            mimeHelper.setText("<html><body>hi,<br/><a href='http://localhost:8080/ForgotPassword/newPassword/" + emailId + "/'> Haga click en el enlace</a> para cambiar su contraseña</body></html>", true);
+            mimeHelper.setText("<html><body>Hola,<br/><a href='http://localhost:8080/ForgotPassword/newPassword/" + emailId + "/'> Haga click en el enlace</a> para cambiar su contraseña</body></html>", true);
             mailSender.send(message);
         } catch (MessagingException e) {
             System.out.println("Error al enviar email " + e.getMessage());
