@@ -37,25 +37,18 @@ public class RecuperarContrasenaControlador {
 
     @RequestMapping(value = "/resetPassword", method = RequestMethod.POST)
     public String resetRequest(@RequestParam(value = "email") String email) {
+
         emailServicio.sendMail(email);
-        
-        // 1 CREAR LOS MODELOS 
-        // 2 CREAR LOS DAO
-        // 3 USAR EN EL CONTROLLER
-        
-        // TODO: VERIFY IF EXIST EMAIL IN DATABASE
-        // ALTER TABLE WITH TOKEN AND SEND EMAIL
-        
         return "checkMail";
+
     }
 
     @RequestMapping(value = "/newPassword/{email}")
     public String resetPassword(@PathVariable String email, Map<String, String> model) {
-        
+
         // VERIFY TOKEN URL OR POST 
         // ALTER TABLE PASSWORD USER
         // EXIT TO RECOVERY PASSWORD
-        
         model.put("emailid", email);
         return "newPassword";
     }

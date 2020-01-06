@@ -5,8 +5,16 @@
  */
 package com.uisrael.centroinformacion.servicios;
 
+import com.uisrael.centroinformacion.modelo.entidades.Usuario;
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+import javax.persistence.TypedQuery;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
 
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
@@ -44,7 +52,6 @@ public class ServiciosEmail {
         } catch (MessagingException e) {
             System.out.println("Error al enviar email " + e.getMessage());
         }
-
     }
     
 }
