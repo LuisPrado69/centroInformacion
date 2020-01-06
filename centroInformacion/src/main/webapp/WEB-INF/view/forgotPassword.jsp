@@ -35,7 +35,7 @@
                     email: true,
                     remote: {
                         url: "RecuperarContrasenaControladorAjax",
-                    type: "post",
+                        type: "post",
                         data: {
                             email: function () {
                                 return $("#email").val();

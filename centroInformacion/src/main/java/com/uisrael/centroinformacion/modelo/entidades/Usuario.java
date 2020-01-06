@@ -6,15 +6,12 @@
 package com.uisrael.centroinformacion.modelo.entidades;
 
 import java.io.Serializable;
-import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
 /**
  *
@@ -31,7 +28,7 @@ public class Usuario implements Serializable {
     @Column(name = "username")
     private String userName;
     @Column(name = "useremail")
-    private String userEmail;
+    public String userEmail;
     @Column(name = "token")
     private String token;
 
