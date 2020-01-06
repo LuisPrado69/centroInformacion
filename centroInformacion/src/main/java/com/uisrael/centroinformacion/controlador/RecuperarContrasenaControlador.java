@@ -37,10 +37,8 @@ public class RecuperarContrasenaControlador {
 
     @RequestMapping(value = "/resetPassword", method = RequestMethod.POST)
     public String resetRequest(@RequestParam(value = "email") String email) {
-
         emailServicio.sendMail(email);
         return "checkMail";
-
     }
 
     @RequestMapping(value = "/newPassword/{email}")

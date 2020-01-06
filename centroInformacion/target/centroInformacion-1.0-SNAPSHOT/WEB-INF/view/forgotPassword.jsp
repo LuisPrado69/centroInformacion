@@ -1,6 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.0/jquery.validate.min.js"></script>
-<script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
 
 <html lang="es">
     <head>
@@ -10,10 +11,10 @@
     </head>
     <body>
         Ingrese su correo electrónico:
-        <form action="resetPassword" method="post">
+        <form action="resetPassword" id="resetPassword" method="post">
             <table>
                 <tr>
-                    <td colspan="2"><input type="text" name="email"> </td>
+                    <td colspan="2"><input type="text" name="email" id="email"> </td>
                 </tr>
                 <tr>
                     <td><input type="Submit" value="Recuperar contraseña">  </td>
@@ -27,29 +28,26 @@
 <script type="text/javascript">
 
     $(document).ready(function () {
-        $("#form").validate({
+        $("#resetPassword").validate({
             rules: {
-                username: {
-
+                email: {
                     required: true,
-
+                    email: true,
                     remote: {
-                        url: "deneme.jsp",
-                        async: false,
-                        type: "post",
+                        url: "RecuperarContrasenaControladorAjax",
+                    type: "post",
                         data: {
-                            username: function () {
-                                return $("#username").val()
+                            email: function () {
+                                return $("#email").val();
                             }
                         }
                     }
-
-
                 }
             },
             messages: {
-                username: {
-                    required: "Require Field", remote: "already exist"
+                email: {
+                    required: "Campo requerido", 
+                    remote: "No existe un registro con este email"
                 }
             }
         });

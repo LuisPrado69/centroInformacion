@@ -19,11 +19,11 @@ import javax.persistence.criteria.Root;
  *
  * @author LUCHO
  */
-@PersistenceUnit(unitName= "centroInformacionPU")
+@PersistenceUnit(unitName = "centroInformacionPU")
 public class UsuarioDao {
-    
+
     public Usuario findByEmail(String email) {
-        
+
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("centroInformacionPU");
         EntityManager em = emf.createEntityManager();
         CriteriaBuilder builder = emf.getCriteriaBuilder();
@@ -34,5 +34,5 @@ public class UsuarioDao {
         Usuario usuarioResultado = q.getSingleResult();
         return usuarioResultado;
     }
-    
+
 }
