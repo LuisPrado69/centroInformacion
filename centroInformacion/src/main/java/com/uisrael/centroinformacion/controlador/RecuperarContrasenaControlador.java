@@ -52,10 +52,6 @@ public class RecuperarContrasenaControlador {
 
     @RequestMapping(value = "/newPassword/{email}/{token}")
     public String resetPassword(@PathVariable String email,@PathVariable String token, Map<String, String> model) {
-
-        // VERIFY TOKEN URL OR POST 
-        // ALTER TABLE PASSWORD USER
-        // EXIT TO RECOVERY PASSWORD
         model.put("emailid", email);
         model.put("token", token);
         return "newPassword";
