@@ -6,6 +6,7 @@
 package com.uisrael.centroinformacion.controlador;
 
 import com.uisrael.centroinformacion.modelo.dao.UsuarioDao;
+import com.uisrael.centroinformacion.modelo.entidades.Usuario;
 import java.util.Map;
 
 import com.uisrael.centroinformacion.servicios.ServiciosEmail;
@@ -51,9 +52,10 @@ public class RecuperarContrasenaControlador {
     }
 
     @RequestMapping(value = "/newPassword/{email}/{token}")
-    public String resetPassword(@PathVariable String email,@PathVariable String token, Map<String, String> model) {
+    public String resetPassword(@PathVariable String email, @PathVariable String token, Map<String, String> model) {
         model.put("emailid", email);
         model.put("token", token);
         return "newPassword";
     }
+
 }

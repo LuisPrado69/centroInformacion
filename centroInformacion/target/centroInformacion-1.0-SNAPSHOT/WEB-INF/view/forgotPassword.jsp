@@ -39,7 +39,8 @@
                         data: {
                             email: function () {
                                 return $("#email").val();
-                            }
+                            },
+                            asunto: 1
                         }
                     }
                 }

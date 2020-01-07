@@ -10,7 +10,6 @@ import com.uisrael.centroinformacion.modelo.entidades.Usuario_;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-import javax.persistence.PersistenceUnit;
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
@@ -21,16 +20,15 @@ import javax.persistence.criteria.Root;
  *
  * @author LUCHO
  */
-@PersistenceUnit(unitName = "centroInformacionPU")
 public class UsuarioDao {
 
-    public Usuario findByEmail(String email) {
+    public Usuario findByToken(String token) {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("centroInformacionPU");
         EntityManager em = emf.createEntityManager();
         CriteriaBuilder builder = emf.getCriteriaBuilder();
         CriteriaQuery<Usuario> query = builder.createQuery(Usuario.class);
         Root<Usuario> root = query.from(Usuario.class);
-        query.select(root).where(builder.equal(root.get("userEmail"), email));
+        query.select(root).where(builder.equal(root.get("token"), token));
         TypedQuery<Usuario> q = em.createQuery(query);
         Usuario usuarioResultado = q.getSingleResult();
         return usuarioResultado;
